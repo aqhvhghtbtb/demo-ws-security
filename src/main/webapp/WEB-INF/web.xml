@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+    
+    <display-name>Person Service</display-name> 
+    <description>Simpe CRUD like Application</description> 
+ 
+    <!-- Defines the Spring-WS MessageDispatcherServlet -->
+    <servlet> 
+        <servlet-name>spring-ws</servlet-name> 
+        <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class> 
+        <init-param> 
+            <!-- Transform the location attributes in WSDLs -->
+            <param-name>transformWsdlLocations</param-name> 
+            <param-value>true</param-value> 
+        </init-param> 
+    </servlet> 
+ 
+    <!-- Map all requests to this servlet -->
+    <servlet-mapping> 
+        <servlet-name>spring-ws</servlet-name> 
+        <url-pattern>/*</url-pattern> 
+    </servlet-mapping> 
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

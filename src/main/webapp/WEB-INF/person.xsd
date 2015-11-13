@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  targetNamespace="http://www.sab2i.com/person/schema"
+  xmlns:per="http://www.sab2i.com/person/schema"
+  elementFormDefault="qualified"> 
+ 
+  <xs:element name="Person"> 
+    <xs:complexType> 
+      <xs:sequence> 
+        <xs:element name="FirstName" type="xs:string" /> 
+        <xs:element name="LastName" type="xs:string" /> 
+      </xs:sequence> 
+      <xs:attribute ref="per:Id" use="required" /> 
+    </xs:complexType> 
+  </xs:element> 
+ 
+  <xs:attribute name="Id" type="xs:int" /> 
+ 
+  <xs:element name="AddPersonRequest"> 
+    <xs:complexType> 
+      <xs:sequence> 
+        <xs:element ref="per:Person" /> 
+      </xs:sequence> 
+    </xs:complexType> 
+  </xs:element> 
+ 
+  <xs:element name="GetPersonRequest"> 
+    <xs:complexType> 
+      <xs:attribute ref="per:Id" use="required" /> 
+    </xs:complexType> 
+  </xs:element> 
+ 
+  <xs:element name="GetPersonResponse"> 
+    <xs:complexType> 
+      <xs:sequence> 
+        <xs:element ref="per:Person" /> 
+      </xs:sequence> 
+    </xs:complexType> 
+  </xs:element> 
+ 
+  <xs:element name="GetAllPersonsRequest"> 
+    <xs:complexType> 
+      <xs:sequence /> 
+    </xs:complexType> 
+  </xs:element> 
+   
+  <xs:element name="GetAllPersonsResponse"> 
+    <xs:complexType> 
+      <xs:sequence> 
+        <xs:element ref="per:Person" maxOccurs="unbounded"/> 
+      </xs:sequence> 
+    </xs:complexType> 
+  </xs:element> 
+   
+  <xs:element name="UpdatePersonRequest"> 
+    <xs:complexType> 
+      <xs:sequence> 
+        <xs:element ref="per:Person" /> 
+      </xs:sequence> 
+    </xs:complexType> 
+  </xs:element> 
+ 
+  <xs:element name="DeletePersonRequest"> 
+    <xs:complexType> 
+      <xs:attribute ref="per:Id" use="required" /> 
+    </xs:complexType> 
+  </xs:element> 
+</xs:schema>
